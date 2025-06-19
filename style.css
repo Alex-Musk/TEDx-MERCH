@@ -1,0 +1,396 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+/*Background color*/
+#grad1 {
+    background-image: linear-gradient(120deg, #f09b50c3, #e889368a); 
+}
+
+.hidden { display: none; }
+.form-group { margin-bottom: 10px; }
+.delivery-select {
+  display: flex;
+  gap: 15px;
+}
+
+.delivery-select input[type="radio"] {
+  display: none;
+}
+
+.delivery-box {
+  padding: 12px 20px;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+  user-select: none;
+}
+
+.delivery-select input[type="radio"]:checked + .delivery-box {
+  background-color: #dc6419;
+  color: #fff;
+  border: none;
+  font-weight: bold;
+}
+
+
+/*form styles*/
+  .product-table {
+    width: 100%;
+  }
+
+  .product-row {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #898989e9;
+    padding: 10px 0;
+  }
+
+  .product-info {
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
+
+  .product-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 15px;
+  }
+
+  .product-name {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .product-price, .product-total {
+    width: 100px;
+    text-align: right;
+    margin-left: 10px;
+  }
+
+  .quantity {
+    width: 50px;
+    margin-left: 30px;
+  }
+
+  input[type="number"] {
+    width: 100%;
+    padding: 5px;
+    font-size: 14px;
+  }
+
+  .total-section {
+    text-align: right;
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+#msform {
+    text-align: center;
+    position: relative;
+    margin-top: 20px;
+}
+
+#msform fieldset .form-card {
+    border: 0 none;
+    padding: 0px 10px;
+    box-sizing: border-box;
+    width: 94%;
+    margin: 0 3% 20px 3%;
+
+    /*stacking fieldsets above each other*/
+    position: relative;
+}
+
+#msform fieldset {
+    border: 0 none;
+    border-radius: 2rem;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding: 5px 20px;
+
+    /*stacking fieldsets above each other*/
+    position: relative;
+}
+
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+    display: none;
+}
+
+#msform fieldset .form-card {
+    text-align: left;
+    color: #383838;
+}
+
+#msform input, #msform textarea {
+    padding: 0px 8px 4px 8px;
+    border: none;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 10px;
+    margin-bottom: 25px;
+    margin-top: 2px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color: #2C3E50;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+#msform input:focus, #msform textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: none;
+    font-weight: bold;
+    border-bottom: 2px solid  rgba(226, 71, 71, 0.981);;
+    outline-width: 0;
+}
+
+/*Blue Buttons*/
+#msform .action-button {
+    width: 100px;
+    background:  rgba(226, 71, 71, 0.981);;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 15px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px;
+}
+
+#msform .action-button:hover, #msform .action-button:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px  rgba(226, 71, 71, 0.981);;
+}
+
+/*Previous Buttons*/
+#msform .action-button-previous {
+    width: 100px;
+    background: #858585;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 15px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px;
+}
+
+#msform .action-button-previous:hover, #msform .action-button-previous:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #616161;
+}
+
+/*Dropdown List Exp Date*/
+select.list-dt {
+    border: none;
+    outline: 0;
+    border-bottom: 1px solid #ccc;
+    padding: 2px 5px 3px 5px;
+    margin: 2px;
+}
+
+select.list-dt:focus {
+    border-bottom: 2px solid  rgba(226, 71, 71, 0.981);;
+}
+
+/*The background card*/
+.card {
+    z-index: 0;
+    border: none !important;
+    border-radius: 2rem !important;
+    position: relative;
+    background-color: #ffffff96 !important;
+}
+
+/*FieldSet headings*/
+.fs-title {
+    font-size: 25px;
+    color: #2C3E50;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: left;
+}
+
+/*progressbar*/
+#progressbar {
+    margin-bottom: 30px;
+    overflow: hidden;
+
+}
+
+#progressbar .active {
+    color: #000000;
+}
+
+#progressbar li {
+    list-style-type: none;
+    font-size: 12px;
+    width: 25%;
+    float: left;
+    position: relative;
+}
+
+/*Icons in the ProgressBar*/
+#progressbar #account:before {
+    font-family: FontAwesome;
+    content: "\f023";
+}
+
+#progressbar #personal:before {
+    font-family: FontAwesome;
+    content: "\f007";
+}
+
+#progressbar #payment:before {
+    font-family: FontAwesome;
+    content: "\f09d";
+}
+
+#progressbar #confirm:before {
+    font-family: FontAwesome;
+    content: "\f00c";
+}
+
+/*ProgressBar before any progress*/
+#progressbar li:before {
+    width: 50px;
+    height: 50px;
+    line-height: 45px;
+    display: block;
+    font-size: 18px;
+    color: #353535;
+    background-color: #f7e4d2;
+    border: solid 1px #2f2e2e;
+    border-radius: 50%;
+    margin: 0 auto 10px auto;
+    padding: 2px;
+}
+
+/*ProgressBar connectors*/
+#progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: lightgray;
+    position: absolute;
+    left: 0;
+    top: 25px;
+    z-index: -1;
+}
+
+/*Color number of the step and the connector before it*/
+#progressbar li.active:before, #progressbar li.active:after {
+    background:  rgba(226, 71, 71, 0.981);;
+}
+
+/*Imaged Radio Buttons*/
+.radio-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.radio {
+    display:inline-block;
+    width: 204;
+    height: 104;
+    border-radius: 0;
+    background: lightblue;
+    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    cursor:pointer;
+    margin: 8px 2px; 
+}
+
+.radio:hover {
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.radio.selected {
+    box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+/*Fit image in bootstrap div*/
+.fit-image{
+    width: 100%;
+    object-fit: cover;
+}
+
+/*payment*/
+.payment-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.qr-section {
+  flex: 1 1 200px;
+  text-align: center;
+}
+
+.qr-image {
+  width: 200px;
+  height: 270px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.bill-details {
+  flex: 1 1 250px;
+}
+
+.bill-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.bill-item.total {
+  font-size: 18px;
+  color: #d32f2f;
+}
+
+.upload-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #d32f2f; /* Màu đỏ TEDx */
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: 500;
+}
+
+.upload-btn:hover {
+  background-color: #b71c1c;
+}
+
+.file-name {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #555;
+}
+
+.error-message {
+    font-size: 14px;
+    color: #d32f2f;
+    text-align: center;
+    font-weight: 500;
+}

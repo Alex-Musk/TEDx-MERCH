@@ -1,0 +1,220 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merch</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet'>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css' rel='stylesheet'>
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src="function.js"></script>
+</head>
+
+<!-- MultiStep Form -->
+<div class="container-fluid" id="grad1" >
+    <div class="row justify-content-center mt-0">
+        <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2">
+            <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                <h2><strong>Mua merch</strong></h2>
+                <div class="row">
+                    <div class="col-md-12 mx-0">
+                        <form id="msform">
+                            <!-- progressbar -->
+                            <ul id="progressbar">
+                                <li class="active" id="account"><strong>Sản phẩm</strong></li>
+                                <li id="personal"><strong>Thông tin cá nhân</strong></li>
+                                <li id="payment"><strong>Thanh toán</strong></li>
+                                <li id="confirm"><strong>Hoàn thành</strong></li>
+                            </ul>
+                            <!-- fieldsets -->
+                            <fieldset>
+                                <div class="form-card">
+                                    <h2 class="fs-title">Sản phẩm</h2>
+                                    <div class="product-table">
+                                        <div class="product-row" data-price="49000">
+                                            <div class="product-info">
+                                            <img src="./products/tote.png" class="product-img" alt="Túi Tote">
+                                            <div class="product-name">Túi Tote</div>
+                                            </div>
+                                            <div class="product-price">49.000VND</div>
+                                            <div class="quantity">
+                                            <input type="number" name="product1_qty" min="0" value="0" onchange="updateTotal()" style="text-align: center;background-color: #ffffffb0; border: none;">
+                                            </div>
+                                            <div class="product-total">0đ</div>
+                                        </div>
+
+                                        <div class="product-row" data-price="35000">
+                                            <div class="product-info">
+                                            <img src="./products/lanyard.png" class="product-img" alt="Lanyard">
+                                            <div class="product-name">Lanyard (dây đeo thẻ)</div>
+                                            </div>
+                                            <div class="product-price">35.000VND</div>
+                                            <div class="quantity">
+                                            <input type="number" name="product2_qty" min="0" value="0" onchange="updateTotal()" style="text-align: center; background-color: #ffffffb0; border: none;">
+                                            </div>
+                                            <div class="product-total">0đ</div>
+                                        </div>
+
+                                        <div class="product-row" data-price="18000">
+                                            <div class="product-info">
+                                            <img src="./products/mockhoa.png" class="product-img" alt="Móc khóa TEDx">
+                                            <div class="product-name">Móc khóa acrylic</div>
+                                            </div>
+                                            <div class="product-price">18.000VND</div>
+                                            <div class="quantity">
+                                            <input type="number" name="product3_qty" min="0" value="0" onchange="updateTotal()" style="text-align: center;background-color: #ffffffb0; border: none;">
+                                            </div>
+                                            <div class="product-total">0đ</div>
+                                        </div>
+
+                                        <div class="product-row" data-price="12000">
+                                            <div class="product-info">
+                                            <img src="./products/sticker.jpg" class="product-img" alt="Sticker TEDx">
+                                            <div class="product-name">Sticker set</div>
+                                            </div>
+                                            <div class="product-price">12.000VND</div>
+                                            <div class="quantity">
+                                            <input type="number" name="product4_qty" min="0" value="0" onchange="updateTotal()" style="text-align: center;background-color: #ffffffb0; border: none;">
+                                            </div>
+                                            <div class="product-total">0đ</div>
+                                        </div>
+                                        <div class="product-row" data-price="100000">
+                                            <div class="product-info">
+                                            <img src="./products/tote.png" class="product-img" alt="combo TEDx">
+                                            <div class="product-name">Combo trọn bộ (lanyard + móc khóa + túi + sticker)</div>
+                                            </div>
+                                            
+                                           <div class="product-price">
+                                                <span class="old-price" style="color: #999;text-decoration: line-through;font-size: 13px;">114.000đ</span><br>
+                                                <span class="new-price" style="color: #d32f2f; font-size: 16px; font-weight: bold;">100.000đ</span>
+                                            </div>
+                                            <div class="quantity">
+                                            <input type="number" name="product5_qty" min="0" value="0" onchange="updateTotal()" style="text-align: center;background-color: #ffffffb0; border: none;">
+                                            </div>
+                                            <div class="product-total">0đ</div>
+                                        </div>
+                                    </div>
+                                    <div class="total-section">
+                                        Tổng tiền: <span id="grand-total">0đ</span>
+                                    </div>
+                                </div>
+                                <div class="error-container"></div>
+                                <input type="button" name="next" class="next action-button" value="Tiếp theo"/>
+                            </fieldset>
+                            <fieldset>
+                                <div class="form-card">
+                                    <h2 class="fs-title">Thông tin cá nhân</h2>
+                                    <input type="text" name="username" placeholder="Họ và Tên"/>
+                                    <input type="tel" name="phonenumber" placeholder="Số điện thoại" pattern="[0-9]{10,12}">
+                                    <input type="email" name="email" placeholder="Email"/>
+                                    <div class="delivery-select">
+                                        <input type="radio" id="onsite" name="delivery" value="onsite" checked>
+                                        <label for="onsite" class="delivery-box">Nhận tại sự kiện</label>
+
+                                        <input type="radio" id="ship" name="delivery" value="ship">
+                                        <label for="ship" class="delivery-box">Giao tận nơi</label>
+                                    </div>
+
+                                    <div id="address-section" class="hidden">
+                                        <div class="form-group">
+                                            <h2 class="fs-title" style="padding-top: 20px;">Địa chỉ nhận hàng</h2>
+                                            <p style="margin-bottom: 0px; color: rgba(84, 84, 84, 0.847);">Nhập địa chỉ cụ thể thành phố, tỉnh. <br>Ví dụ: 5 Mai Hắc Đế, Buôn Ma Thuột, Đắk Lắk</p>
+                                            <input type="text" id="address" placeholder="Nhập địa chỉ..." style="margin-bottom: 0px;">
+                                        </div>
+                                        <div class="form-group">
+                                            <strong>Phí giao hàng:</strong> <span id="shipping-cost">30.000đ (cho mọi nơi)</span>
+                                        </div>  
+                                    </div>
+                                </div>
+                                <div class="error-container"></div>
+                                <input type="button" name="previous" class="previous action-button-previous" value="Quay lại"/>
+                                <input type="button" name="next" class="next action-button" value="Tiếp theo" onclick="payment()"/>
+                            </fieldset>
+                            <fieldset>
+                                <div class="form-card">
+                                    <h2 class="fs-title">Thông tin thanh toán</h2>
+
+                                    <div class="payment-info">
+                                        <!-- Bên trái: QR thanh toán -->
+                                        <div class="qr-section">
+                                        <img src="QR.jpg" alt="Mã QR Thanh toán" class="qr-image">
+                                        </div>
+
+                                        <!-- Bên phải: Thông tin tiền -->
+                                        <div class="bill-details">
+                                        <div class="bill-item">
+                                            <span>Tiền sản phẩm:</span>
+                                            <span id="product-total">0đ</span>
+                                        </div>
+                                        <div class="bill-item">
+                                            <span>Phí giao hàng:</span>
+                                            <span id="shipping-fee">0đ</span>
+                                        </div>
+                                        <div class="bill-item total">
+                                            <span><strong>Tổng cộng:</strong></span>
+                                            <span id="grand-total-payment"><strong>0đ</strong></span>
+                                        </div>
+
+                                        <!-- Upload hình ảnh bill -->
+                                        <div class="upload-bill">
+                                            <input type="file" id="bill-upload" accept="image/*" hidden>
+                                            <label for="bill-upload" class="upload-btn">📎Upload bill chuyển khoản</label>
+                                            <div id="bill-file-name" class="file-name">Chưa chọn file</div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="error-container"></div>
+                                <div id="loading-message" class="text-center mt-3" style="display:none;">
+                                    <div class="spinner-border text-danger" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                    <p class="mt-2">Đang xử lý đơn hàng, vui lòng đợi trong giây lát... Nếu sau 60s không hoàn thành được đơn hàng xin vui lòng liên hệ Fanpage <a href="https://www.facebook.com/TEDxAkoDhongYouth">TEDxAko Dhong Youth</a></p>
+                                </div>
+                                <input type="button" name="previous" class="previous action-button-previous" value="Quay lại"/>
+                                <input type="button" name="make_payment" class="next action-button" value="Confirm" />
+                                
+                            </fieldset>
+                            <fieldset>
+                                <div class="form-card">
+                                    <h2 class="fs-title text-center">Thành công!</h2>
+                                    <br>
+                                    <div class="row justify-content-center">
+                                        <div class="col-3">
+                                            <img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image">
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row justify-content-center">
+                                        <div class="col-7 text-center">
+                                            <h5>Đơn hàng của bạn đã được ghi nhận! Chúng mình sẽ liên hệ bạn trong thời gian sớm nhất.</h5>
+                                            <h6>Hãy theo dõi Fanpage tụi mình để không bỏ lỡ thông báo nào nhé: <a href="https://www.facebook.com/TEDxAkoDhongYouth">TEDxAko Dhong Youth</a></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset id="failure-fieldset" style="display: none;">
+                                <div class="form-card">
+                                    <h2 class="fs-title text-center text-danger">Thất bại! 😢</h2>
+                                    <br><br>
+                                    <div class="row justify-content-center">
+                                        <div class="col-3">
+                                            <img src="https://img.icons8.com/emoji/96/multiply-emoji.png" class="fit-image">
+                                        </div>
+                                    </div>
+                                    <br><br>
+                                    <div class="row justify-content-center">
+                                        <div class="col-7 text-center">
+                                            <h5>Gửi đơn hàng thất bại.<br>Vui lòng thử lại sau hoặc liên hệ Fanpage <a href="https://www.facebook.com/TEDxAkoDhongYouth">TEDxAko Dhong Youth</a></h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
